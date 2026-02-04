@@ -1,156 +1,209 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Furniture Lab</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f0f0f;
-      --card:#161616;
-      --gold:#c9a24d;
-      --text:#eaeaea;
-      --muted:#9a9a9a;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:'Inter',sans-serif;
-    }
-    header{
-      padding:60px 8%;
-      text-align:center;
-    }
-    header h1{
-      font-family:'Playfair Display',serif;
-      font-size:52px;
-      letter-spacing:1px;
-      margin:0;
-    }
-    header p{
-      color:var(--muted);
-      max-width:720px;
-      margin:20px auto 0;
-      font-size:16px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-      padding:40px 8% 80px;
-    }
-    .card{
-      background:var(--card);
-      border-radius:18px;
-      padding:18px;
-      cursor:grab;
-      box-shadow:0 20px 40px rgba(0,0,0,.45);
-      transition:.35s ease;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 30px 60px rgba(0,0,0,.65);
-    }
-    .card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:16px;
-    }
-    .card h3{
-      font-family:'Playfair Display',serif;
-      font-size:20px;
-      margin:0 0 8px;
-    }
-    .card p{
-      color:var(--muted);
-      font-size:14px;
-      margin:0 0 14px;
-    }
-    .price{
-      font-size:18px;
-      font-weight:500;
-      color:var(--gold);
-    }
-    footer{
-      padding:40px 8%;
-      text-align:center;
-      color:var(--muted);
-      border-top:1px solid #222;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>The Furniture Lab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#f5f7fa;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#e3f2fd,#ffffff);
+    padding:40px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:40px;
+    margin:0;
+    color:#1a237e;
+}
+
+header p{
+    font-size:18px;
+    color:#555;
+}
+
+.products{
+    max-width:1200px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    padding:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.img-box{
+    height:180px;
+    background:#e0e0e0;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#777;
+    font-size:14px;
+}
+
+.card h3{
+    margin:15px 0 5px;
+}
+
+.price{
+    color:#0d47a1;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+button{
+    background:#1e88e5;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+.cart{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:white;
+    padding:15px 20px;
+    border-radius:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#ffffff;
+    color:#666;
+    margin-top:40px;
+}
+</style>
 </head>
-<body><header>
-  <h1>The Furniture Lab</h1>
-  <p>Luxury wooden decor handcrafted with timeless design, natural materials, and global aesthetics — curated for refined modern homes.</p>
-</header><section class="grid" id="productGrid">  <div class="card" draggable="true">
-    <img src="images/hanging-light.jpg" alt="Hanging Wooden Light">
-    <h3>Hanging Wooden Light</h3>
-    <p>Minimal sculpted wood with warm ambient lighting.</p>
-    <div class="price">₹2,000</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/table-clock.jpg" alt="Wooden Table Clock">
-    <h3>Wooden Table Clock</h3>
-    <p>Elegant desk clock crafted from premium hardwood.</p>
-    <div class="price">₹1,000</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/wall-clock.jpg" alt="Wooden Glass Wall Clock">
-    <h3>Wood & Glass Wall Clock</h3>
-    <p>Modern transparency with organic warmth.</p>
-    <div class="price">₹1,200</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/wall-decor.jpg" alt="Wall Decor">
-    <h3>Wall Decor Sculptures</h3>
-    <p>Hand-finished statement wall decor pieces.</p>
-    <div class="price">₹349 / piece</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/bluetooth-speaker.jpg" alt="Wooden Bluetooth Speaker">
-    <h3>Mini Wooden Bluetooth Speaker</h3>
-    <p>Pure sound wrapped in natural wood.</p>
-    <div class="price">₹2,000</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/spoon-stand.jpg" alt="Spoon & Tissue Stand">
-    <h3>Spoon & Tissue Paper Stand</h3>
-    <p>Luxury dining essentials with brass accents.</p>
-    <div class="price">₹2,499 / set</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/honeycomb-tray.jpg" alt="Honeycomb Tray">
-    <h3>Honeycomb Wooden Tray</h3>
-    <p>Geometric elegance for serving & decor.</p>
-    <div class="price">₹500 / piece</div>
-  </div>  <div class="card" draggable="true">
-    <img src="images/resin-coasters.jpg" alt="Resin Coasters">
-    <h3>Resin Tea Cup Coasters & Rack</h3>
-    <p>Luxury resin & wood fusion artistry.</p>
-    <div class="price">₹2,500 / set</div>
-  </div></section><footer>
-  © 2026 The Furniture Lab · Designed for Luxury Living
-</footer><script>
-  const grid = document.getElementById('productGrid');
-  let dragged;
 
-  document.addEventListener('dragstart', e => {
-    dragged = e.target;
-    e.target.style.opacity = .5;
-  });
+<body>
 
-  document.addEventListener('dragend', e => {
-    e.target.style.opacity = '';
-  });
+<header>
+    <h1>The Furniture Lab</h1>
+    <p>Premium Handmade Wooden & Interior Products</p>
+</header>
 
-  document.addEventListener('dragover', e => e.preventDefault());
+<div class="products">
 
-  document.addEventListener('drop', e => {
-    e.preventDefault();
-    if (e.target.classList.contains('card') && e.target !== dragged) {
-      const nodes = [...grid.children];
-      const draggedIndex = nodes.indexOf(dragged);
-      const targetIndex = nodes.indexOf(e.target);
-      grid.insertBefore(dragged, draggedIndex > targetIndex ? e.target : e.target.nextSibling);
-    }
-  });
-</script></body>
-  </html>
+<div class="card">
+<div class="img-box">Hanging Wooden Light</div>
+<h3>Hanging Wooden Light</h3>
+<div class="price">₹2,000</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Cup Tea Coaster & Tray</div>
+<h3>Cup Tea Coaster & Tray (Set)</h3>
+<div class="price">₹1,500</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Honeycomb Wooden Tray</div>
+<h3>Honeycomb Style Wooden Tray</h3>
+<div class="price">₹500</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Wooden Bluetooth Speaker</div>
+<h3>Wooden Bluetooth Speaker</h3>
+<div class="price">₹3,000</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Wooden Wall Clock</div>
+<h3>Wooden Wall Clock</h3>
+<div class="price">₹2,500</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Iron Flower Pot Stand</div>
+<h3>Iron Flower Pot Stand</h3>
+<div class="price">₹950</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Hanky & Spoon Stand</div>
+<h3>Hanky & Spoon Stand (Set)</h3>
+<div class="price">₹1,500</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Desk Mini Clock</div>
+<h3>Desk Mini Clock</h3>
+<div class="price">₹950</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Wooden Hanging Clock</div>
+<h3>Wooden Hanging Clock</h3>
+<div class="price">₹2,000</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<div class="img-box">Minimal Hanging Wooden Light</div>
+<h3>Minimal Hanging Wooden Light</h3>
+<div class="price">₹950</div>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+</div>
+
+<div class="cart">
+🛒 Cart: <span id="count">0</span>
+</div>
+
+<footer>
+© 2026 The Furniture Lab. All Rights Reserved.
+</footer>
+
+<script>
+let count = 0;
+function addToCart(){
+    count++;
+    document.getElementById("count").innerText = count;
+}
+</script>
+
+</body>
+                                           </html>
